@@ -1,9 +1,27 @@
 
 function renderAlbums(albums) {
+
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
+        <div>
+        <h1>Artists</h1>
+        ${albums.map(renderAlbum)} 
         </div>
+        `
+}
+
+function renderAlbum(album) {
+    return `
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${album.artist}</h5>
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51Y5ZCMV2QL.jpg" alt="" style="width: 80%">
+            <p class="card-text">${album.albums.title}</p>
+
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
     `
 }
 
