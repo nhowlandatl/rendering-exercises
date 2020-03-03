@@ -1,30 +1,45 @@
 // need help on this. Use forEach? Having a hard time accessing nested array objects.
 // probably use nested for loop?
 
+// function renderAlbums(albums) {
+//     return `
+//         <div>
+//         <h1>Artists</h1>
+//         ${albums.map(renderAlbum)} 
+//         </div>
+//         `
+// }
+
+
 function renderAlbums(albums) {
-    return `
-        <div>
-        <h1>Artists</h1>
-        ${albums.map(renderAlbum)} 
+
+    var renderAlbumsHTML = albums.map(renderAlbum);
+
+    var albumHTML = 
+    `
+        <div class="album">
+            ${renderAlbumsHTML.join("")}
         </div>
-        `
-}
+    `;
+    return albumHTML;
+};
+
+
 
 function renderAlbum(album) {
-
+    
     return `
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${album.artist}</h5> 
-            <img src="${album.albums[0].albumCover}" alt="" style="width: 80%">
-            <p class="card-text">${album.albums[0].title}</p>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
-    `
+        <div class="card color-black bg-light py-3 px-3" style="width: 600px">
+            <h1>${album.artist}</h1>
+            <hr>
+            <div class="card-body-right">
+            <br>
+            <h3>Rotten Tomatoes</h3>
+            
+       </div>
+       `;
 }
+
 
 function albums() {
 

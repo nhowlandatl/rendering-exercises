@@ -14,19 +14,21 @@ function renderMovies(movies) {
 
 function renderMovie(movie) {
     return `
-        <div class="card color-black bg-dark" style="width: 600px">
-            <div class="row mx-2 my-3">
-                <div class="col-4">
-                    <img src="${movie.poster}" alt="" class="img-responsive" width="200" height="auto">
+        <div class="card color-black bg-dark py-3 px-3" style="width: 600px">
+            <div class="row justify-content-center">
+                <div class="col-6 rounded">
+                    <img class="card-img" src="${movie.poster}">
                 </div>
-                <div class="col-8 bg-secondary">
-                    <h1>${movie.title}</h1>
-                    <p>${movie.year}</p>
-                    <h3>IMDB:</h3>
-                    <h3>${movie.imdbRating}/10</h3>
-                    <br>
-                    <h3>Rotten Tomatoes</h3>
-                    <h3>${movie.rottenTomatoesRating}</h3>
+                <div class="col-6 bg-secondary rounded">
+                    <div class="card-body-right">
+                        <h1>${movie.title}</h1>
+                        <p>${movie.year}</p>
+                        <h3>IMDB:</h3>
+                        <h3>${movie.imdbRating}/10</h3>
+                        <br>
+                        <h3>Rotten Tomatoes</h3>
+                        <h3>${movie.rottenTomatoesRating}</h3>
+                    </div>
                 </div>
             </div>
        </div>
