@@ -1,18 +1,17 @@
 function renderCircles(circles) {
-    // HINT: You probably need to write a for loop!
-    //       Or, if you're feeling fancy, use .map() 
-
     function drawCircle(circles) {
-        return
-        `<div style=
+        return `
+        <div style=
             "width: ${circles.radius}px; 
             height: ${circles.height}px;
             background-color: ${circles.color};
             border-radius: ${circles.radius}px">
-        </div> `
+        </div>
+        `
     }
-    return
-    `${circles.map(drawCircle).join("")}`
+    return `
+    ${circles.map(drawCircle).join("")}
+    `
 }
 
     

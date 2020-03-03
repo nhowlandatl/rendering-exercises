@@ -1,10 +1,36 @@
-
 function renderMovies(movies) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
-        </div>
+
+    var renderMoviesHTML = movies.map(renderMovie);
+
+    var movieHTML = 
     `
+        <div class="movie">
+            ${renderMoviesHTML.join("")}
+        </div>
+    `;
+    return movieHTML;
+};
+
+
+function renderMovie(movie) {
+    return `
+        <div class="card color-black bg-dark" style="width: 600px">
+            <div class="row mx-2 my-3">
+                <div class="col-4">
+                    <img src="${movie.poster}" alt="" class="img-responsive" width="200" height="auto">
+                </div>
+                <div class="col-8 bg-secondary">
+                    <h1>${movie.title}</h1>
+                    <p>${movie.year}</p>
+                    <h3>IMDB:</h3>
+                    <h3>${movie.imdbRating}/10</h3>
+                    <br>
+                    <h3>Rotten Tomatoes</h3>
+                    <h3>${movie.rottenTomatoesRating}</h3>
+                </div>
+            </div>
+       </div>
+       `;
 }
 
 function movies() {
