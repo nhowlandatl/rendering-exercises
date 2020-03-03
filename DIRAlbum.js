@@ -1,73 +1,34 @@
 // this just returns the artist name
-function renderArtist(albums) {
-
-    var renderArtistHTML = albums.map(renderAlbums);
-
-    var albumHTML = 
-    `
-        <div class="album">
-            ${renderArtistHTML.join("")}
-        </div>
-    `;
-    return albumHTML;
+function render(allInfo) {
+    let renderInfo = allInfo.map(artist =>{ 
+        console.log(artist)
+        return`<div class="album">
+                ${artist.name}
+                ${artist.albums.map(album=>{
+                    return `
+                        <div>
+                            <img src="${album.albumCover}"/>
+                            ${album.title}
+                            ${album.songs.map(song=>{
+                                return `<p>${song.title} - ${song.length}</p>`
+                            }).join("")}
+                        </div>
+                    `
+                }).join("")}
+            </div>`
+     })
+ 
+    return renderInfo;
 };
 
 
-
-function renderAlbums(album) {
-    
-    var albumTitle = albumInfo(album); 
-
-    return `
-        <div class="card color-black bg-light py-3 px-3" style="width: 600px">
-            <h1>${album.artist}</h1>
-            <hr>
-            ${albumTitle.join("")}
-       </div>
-       `;
-};
-
-function albumInfo(album) {
-
-
-    var albumData = album.albums.map(info=> {
-        console.log(info);
-        var songs = songInfo(info); 
-        return `
-        <div class="card color-black bg-light py-3 px-3" style="width: 600px">
-           <img src="${info.albumCover}">
-            <h2>${info.title}</h2>
-            <p>${songs.join("")}</p>
-            
-       </div>
-        `
-    })
-    return albumData;
-
-}
-
-function songInfo(songsObj) {
-
-    var songData = songsObj.songs.map(song=> {
-        console.log(song);
-        return `
-        <div class="card color-black bg-light py-3 px-3" style="width: 600px">
-            <p>${song.title}</p>
-            <p>${song.length}</p>
-       </div>
-        `
-    })
-    return songData;
-
-}
-
-function albums() {
+function DIRSolution() {
 
     var content = document.getElementById('content');
 
     var albumsAbstraction = [
         {
-            artist: "Creed",
+            name: "Creed",
             albums: [
                 {
                     title: "My Own Prison",
@@ -131,9 +92,11 @@ function albums() {
                     ]
                 }
             ]
-        }
+        },
+    
     ]
 
-    content.innerHTML = renderArtist(albumsAbstraction);
+    content.innerHTML = render(albumsAbstraction);
 
 }
+
