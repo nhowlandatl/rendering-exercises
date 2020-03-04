@@ -1,11 +1,23 @@
 
 function renderSurveys(surveys) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(surveys)}</code>
+    let renderSurvey = surveys.map(survey => {
+        return `<div class="card">
+            ${survey.title}
+            ${survey.fields.map(field =>{
+                // how do I create a radio object from this array?
+                return `
+                    <div>
+                        ${field.label}
+                        ${field.options}
+                    </div>`
+                }).join("")}
         </div>
-    `
-}
+        `
+    }).join("")
+    return renderSurvey;
+};
+
+
 
 function surveys() {
     var content = document.getElementById('content');

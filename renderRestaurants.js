@@ -2,11 +2,16 @@
 function renderRestaurants(restaurants) {
     // HINT: You can use <img /> tags that point to these playing card images: 
     // https://commons.wikimedia.org/wiki/Category:SVG_playing_cards
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(restaurants)}</code>
+    let renderInfo = restaurants.map(restaurant =>{ 
+        return `
+        <div class="restaurant">
+            ${restaurant.name}
+            ${restaurant.type}
+            ${restaurant.priceRating}
         </div>
-    `
+        `
+    }).join("")
+    return renderInfo;
 }
 
 function restaurants() {
@@ -31,5 +36,5 @@ function restaurants() {
     ];
 
     content.innerHTML = renderRestaurants(restaurantsAbstraction);
-
 }
+
