@@ -1,22 +1,32 @@
 
 function renderSurveys(surveys) {
     let renderSurvey = surveys.map(survey => {
-        return `<div class="card">
+        return `<div class="card color-black bg-light py-3 px-3" style="width: 500px">
             ${survey.title}
+            <hr>
             ${survey.fields.map(field =>{
                 // how do I create a radio object from this array?
+                if (field.options) {
+                    var options = field.options.map(option => {
+                        return `
+                        <input type="radio"> ${option} </input>
+                        `
+                    }).join("")}
+                
                 return `
                     <div>
                         ${field.label}
-                        ${field.options}
+                        ${options}
                     </div>`
                 }).join("")}
+                <div>
+                    <button style="width: auto">${survey.submitButtonText}</button>
+                </div>
         </div>
         `
     }).join("")
     return renderSurvey;
 };
-
 
 
 function surveys() {
